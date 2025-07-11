@@ -3,11 +3,11 @@
 client_id = "adc9c283b5b8fe02e5995b31f891e64d"
 name = "DINYI-DESIGNER"
 handle = "dinyi-designer"
-application_url = "https://pb-governance-clicks-argentina.trycloudflare.com"
+application_url = "https://shopify-designer.onrender.com"
 embedded = true
 
 [build]
-automatically_update_urls_on_dev = true
+automatically_update_urls_on_dev = false
 include_config_on_deploy = true
 
 [webhooks]
@@ -26,7 +26,11 @@ api_version = "2025-07"
 scopes = "write_products"
 
 [auth]
-redirect_urls = ["https://pb-governance-clicks-argentina.trycloudflare.com/auth/callback", "https://pb-governance-clicks-argentina.trycloudflare.com/auth/shopify/callback", "https://pb-governance-clicks-argentina.trycloudflare.com/api/auth/callback"]
+redirect_urls = [
+  "https://shopify-designer.onrender.com/auth/callback",
+  "https://shopify-designer.onrender.com/auth/shopify/callback",
+  "https://shopify-designer.onrender.com/api/auth/callback"
+]
 
 [pos]
 embedded = false
