@@ -1,0 +1,76 @@
+<button data-id="{{block.settings.btnId}}"  class="d-button" style="height:{{block.settings.height_size}}px;font-size:{{ block.settings.font_size }}px;background:{{ block.settings.bgColor}};color:{{ block.settings.fontColor }}">
+  Design
+</button>
+
+<script>
+    window.designParams = {
+      id: '{{ block.settings.btnId }}'
+    };
+
+    window.addEventListener('message', function (event) {
+
+        let safeOrigin = ['https://design.dinwow.com']
+        console.log('message',event)
+        if(safeOrigin.includes(event.origin)){
+          console.log('event message',event);
+          let receivedData = event.data;
+
+
+          document.body.removeChild(document.querySelector('#dinhoo-modal-0530'))
+            
+        }
+        
+    },false)
+
+    window.addEventListener('storage', function (event) {
+
+      let safeOrigin = ['https://design.dinwow.com']
+      console.log('storage',event)
+      if(safeOrigin.includes(event.origin)){
+        console.log('event message',event);
+        let receivedData = event.data;
+          
+      }
+      
+  },false)
+
+</script>
+
+{% schema %}
+{
+  "name": "Button",
+  "target": "section",
+  "javascript":"useDesigner.js",
+  "stylesheet":"design.css",
+  "settings": [
+    { "type": "product", "id": "product", "label": "product", "autofill": true },
+    { "type": "text", "id": "btnId", "label": "按钮ID", "default": "designBtn" },
+    {
+        "type": "range",
+        "id": "height_size",
+        "min": 30,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Height",
+        "default": 45
+    },
+    {
+        "type": "range",
+        "id": "font_size",
+        "min": 12,
+        "max": 30,
+        "step": 2,
+        "unit": "px",
+        "label": "Font size",
+        "default": 14
+    },
+    { "type": "color", "id": "bgColor", "label": "Bg Colour", "default": "#000000" },
+    { "type": "color", "id": "fontColor", "label": "Color", "default": "#ffffff" },
+    
+  ]
+}
+
+{% endschema %}
+
+
